@@ -1,6 +1,10 @@
 /* Scanner (React Bits) — port vanilla WebGL2 para a seção da oferta.
    Cores do design system: orange #FF7E4A → gold #FFB800 → picos brancos. */
 (function () {
+  // V3: scanner desativado — a camada preta (.offer-v3-bg) cobre o canvas,
+  // então o WebGL rodaria à toa (consumo de GPU no mobile).
+  // Para reativar, basta remover este return.
+  return;
   const canvas = document.getElementById("offer-scanner");
   if (!canvas) return;
 
