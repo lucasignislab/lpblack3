@@ -39,7 +39,7 @@ http.createServer((req, res) => {
       res.writeHead(404);
       return res.end('Not found');
     }
-    res.writeHead(200, { 'Content-Type': MIME[path.extname(file).toLowerCase()] || 'application/octet-stream' });
+    res.writeHead(200, { 'Content-Type': MIME[path.extname(file).toLowerCase()] || 'application/octet-stream', 'Cache-Control': 'no-store' });
     res.end(data);
   });
 }).listen(port, host, () => {

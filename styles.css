@@ -186,6 +186,13 @@ h1 em { display: block; color: #d95700; font-style: normal; }
   color: transparent;
 }
 .hero-title__line { display: inline; }
+/* V3 — headline longo da oferta direta: flui como parágrafo, com quebra antes da escassez */
+.hero-title--v3 { max-width: 24ch; font-size: clamp(1.7rem, 5vw, 2.3rem); }
+.hero-title--v3 .hero-title__line--break { display: block; margin-top: 0.4em; }
+@media (min-width: 961px) {
+  .hero-title--v3 { max-width: none; font-size: clamp(1.9rem, 2.3vw, 2.4rem); }
+  .hero-title--v3 .hero-title__line { display: inline; white-space: normal; }
+}
 .hero .brand { color: #fff; }
 .hero .brand span { font-family: "Inter Local", Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing: 0; }
 /* Logo fixado no topo esquerdo, alinhado à borda do container */
@@ -244,7 +251,7 @@ h1 em { display: block; color: #d95700; font-style: normal; }
   isolation: isolate;
   overflow: hidden;
   padding: 86px 24px 100px;
-  background: #fff;
+  background: #000;
 }
 
 /* Gradiente animado (shader): fundo branco do DS com gold em movimento */
@@ -258,6 +265,66 @@ h1 em { display: block; color: #d95700; font-style: normal; }
   display: block;
   width: 100%;
   height: 100%;
+}
+/* V3 — background da seção de oferta (port do componente animated-background-lines):
+   base preta, grid laranja em movimento, feixes horizontais e linhas de canto */
+.offer-v3-bg { position: absolute; inset: 0; background: #000; }
+.offer-v3-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 149, 0, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 149, 0, 0.07) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: v3-grid-move 20s linear infinite;
+}
+.offer-v3-lines { position: absolute; inset: 0; overflow: hidden; }
+.offer-v3-lines__row { position: absolute; left: 0; width: 100%; height: 100px; }
+.offer-v3-beam {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #ff9500 20%, #ffd700 50%, #ff9500 80%, transparent 100%);
+  animation: v3-line-move 4s linear infinite;
+}
+.offer-v3-lines__row:nth-child(even) .offer-v3-beam { animation-direction: reverse; animation-delay: 2s; }
+.offer-v3-corners {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: none;
+  width: 300px;
+  height: 100px;
+  transform: translate(-50%, -50%);
+}
+.offer-v3-corners__svg {
+  position: absolute;
+  top: 50%;
+  width: 120px;
+  height: 60px;
+  transform: translateY(-50%);
+  animation: v3-corner-dash 6s linear infinite;
+}
+.offer-v3-corners__svg--left { left: -150px; }
+.offer-v3-corners__svg--right { right: -150px; transform: translateY(-50%) scaleX(-1); animation-delay: 3s; }
+@media (min-width: 768px) {
+  .offer-v3-corners { display: block; }
+}
+@keyframes v3-line-move {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+@keyframes v3-grid-move {
+  0% { background-position: 0 0; }
+  100% { background-position: 50px 50px; }
+}
+@keyframes v3-corner-dash {
+  0% { stroke-dashoffset: 0; }
+  25% { stroke-dashoffset: 100; }
+  50% { stroke-dashoffset: 200; }
+  75% { stroke-dashoffset: 300; }
+  100% { stroke-dashoffset: 400; }
 }
 /* Borda animada em gradiente gold → orange (DS) */
 @property --card-angle {
@@ -525,4 +592,5 @@ h1 em { display: block; color: #d95700; font-style: normal; }
   .button__loader, .form-card { animation: none; }
   .testimonial-track { animation-play-state: paused !important; }
   .testimonial-card { transition: none; }
+  .offer-v3-grid, .offer-v3-beam, .offer-v3-corners__svg { animation: none; }
 }

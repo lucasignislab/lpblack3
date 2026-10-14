@@ -20,7 +20,7 @@
     <link rel="preload" href="assets/hero-video-poster.webp?v=2" as="image" type="image/webp" />
     <link rel="preload" href="assets/ratoeira-mark.png" as="image" />
     <link rel="preload" href="assets/inter-extra-bold.ttf" as="font" type="font/ttf" crossorigin />
-    <link rel="stylesheet" href="styles.css?v=19" />
+    <link rel="stylesheet" href="styles.css?v=21" />
     <script src="script.js?v=8" defer></script>
     <script src="scanner.js" defer></script>
     <script src="testimonials.js?v=12" defer></script>
@@ -74,13 +74,14 @@
               </span>
             </p>
 
-            <h1 id="hero-title">
-              <span class="hero-title__line">90% das suas vendas</span>
-              <span class="hero-title__line">trackeadas. <em>Ou seu</em></span>
-              <span class="hero-title__line"><em>dinheiro de volta.</em></span>
+            <h1 id="hero-title" class="hero-title--v3">
+              <span class="hero-title__line">Black Friday Ratoeira: a única ferramenta de</span>
+              <span class="hero-title__line">tracking totalmente server-side do Brasil</span>
+              <span class="hero-title__line">com garantia de <em>90% de precisão.</em></span>
+              <span class="hero-title__line hero-title__line--break">48 horas e só 50 vagas,</span>
+              <span class="hero-title__line"><em>nunca mais nesse preço.</em></span>
             </h1>
-            <p class="hero__lead">A gente garante isso no painel da Ratoeira. E te dá 3 meses pra cobrar.</p>
-            <p class="hero__description">No dia 29 de Outubro eu abro todas as ofertas ao vivo, <strong>com preços menores que os da própria Black November.</strong></p>
+            <p class="hero__lead">O que os concorrentes prometem, a Ratoeira entrega com garantia de que funciona. Apenas 50 vagas limitadas ou enquanto durar. Nunca mais faremos esse preço! Nunca!</p>
             <a class="button button--primary" href="#oferta" data-track="hero-cta">Garantir meu acesso antecipado</a>
             <p class="hero__microcopy">Gratuito. O link da live vai só para quem estiver na lista.</p>
           </div>
@@ -97,6 +98,19 @@
       <section class="offer" id="oferta" aria-labelledby="offer-title">
         <div class="offer__bg" aria-hidden="true">
           <canvas id="offer-scanner"></canvas>
+          <div class="offer-v3-bg"></div>
+          <div class="offer-v3-grid"></div>
+          <div class="offer-v3-lines">
+            <div class="offer-v3-lines__row" style="top: 10%"><div class="offer-v3-beam"></div></div>
+            <div class="offer-v3-lines__row" style="top: 30%"><div class="offer-v3-beam"></div></div>
+            <div class="offer-v3-lines__row" style="top: 50%"><div class="offer-v3-beam"></div></div>
+            <div class="offer-v3-lines__row" style="top: 70%"><div class="offer-v3-beam"></div></div>
+            <div class="offer-v3-lines__row" style="top: 90%"><div class="offer-v3-beam"></div></div>
+          </div>
+          <div class="offer-v3-corners">
+            <svg class="offer-v3-corners__svg offer-v3-corners__svg--left" viewBox="0 0 120 60" stroke="#ff9500" stroke-width="2" fill="none" stroke-dasharray="50"><path d="M120 0 L20 0 Q0 0 0 20 L0 60" /></svg>
+            <svg class="offer-v3-corners__svg offer-v3-corners__svg--right" viewBox="0 0 120 60" stroke="#ff9500" stroke-width="2" fill="none" stroke-dasharray="50"><path d="M120 0 L20 0 Q0 0 0 20 L0 60" /></svg>
+          </div>
         </div>
         <div class="form-card">
           <p class="form-card__badge">A garantia de 90% no painel da Ratoeira e todas as ofertas abrem dia 29, às 19h30, só para quem estiver na lista</p>
